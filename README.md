@@ -5,6 +5,9 @@
 ## Commit & Pull Request
 `solve(문제번호1, 문제번호2, ...): 영어이름(wonho)_커밋일자(230127)`
 
+## Problem Readme
+`docs(문제번호1, 문제번호2, ...): 영어이름(wonho)_커밋일자(230127)`
+
 ## Info
 - 인원: 약 6명
 - 준비물: 노트북, 문제 해결 정리
