@@ -2,11 +2,14 @@
 
 다같이 열심히 달려봐요
 
+
 ## Commit & Pull Request
 `solve(문제번호1, 문제번호2, ...): 영어이름(wonho)_커밋일자(230127)`
 
+
 ## Problem Readme
 `docs(문제번호1, 문제번호2, ...): 영어이름(wonho)_커밋일자(230127)`
+
 
 ## Info
 - 인원: 약 6명
@@ -23,7 +26,37 @@
     - 정렬(Sort), 이분탐색(Binary Search), 동적 프로그래밍(DP)
     - 투포인터(Two Pointer), 최소 신장 트리(MST), 유니온 파인드(Union-Find)
 
+
 ## Rule
 - 매주 스터디 이전에 정해진 문제를 풀어온다.
 - 서로 문제 풀이 방법, 생각 흐름, 개선 사항 등을 공유하며 스터디를 진행한다.
 > tip: 주중에 풀다가 모르는 문제는 1시간 정도 생각해보고 다른 사람 풀이를 참고하여 풀어본다.
+
+
+## Member
+<table>
+    <tr>
+        <td><img src="https://avatars.githubusercontent.com/u/66542103?v=4" width="130"></td>
+        <td><img src="https://avatars.githubusercontent.com/u/74900921?v=4" width="130"></td>
+        <td><img src="https://avatars.githubusercontent.com/u/66672464?v=4" width="130"></td>
+        <td><img src="https://avatars.githubusercontent.com/u/57997390?v=4" width="130"></td>
+        <td><img src="https://avatars.githubusercontent.com/u/73294363?v=4" width="130"></td>
+        <td><img src="https://avatars.githubusercontent.com/u/123184860?v=4" width="130"></td>
+    </tr>
+    <tr align=center>
+        <td><a href='https://github.com/rt3310'>rt3310</a></td>
+        <td><a href='https://github.com/soun997'>soun997</a></td>
+        <td><a href='https://github.com/tjdwnsmm'>tjdwnsmm</a></td>
+        <td><a href='https://github.com/wancern'>wancern</a></td>
+        <td><a href='https://github.com/yeeeooonn'>yeeeooonn</a></td>
+        <td><a href='https://github.com/zoeyvarnax'>zoeyvarnax</a></td>
+    </tr>
+    <tr align=center>
+        <td>서원호</td>
+        <td>박소윤</td>
+        <td>박성준</td>
+        <td>이현구</td>
+        <td>이수연</td>
+        <td>한라연</td>
+    </tr>
+</table>
