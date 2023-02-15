@@ -1,4 +1,4 @@
-package week3;
+package baekjoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -41,7 +41,6 @@ public class Main_11000 {
 		
 		// 가장 처음 시작하는 수업이 끝나는 시간을 큐에 삽입
 		pq.offer(time[0][1]);
-		
 		for (int i = 1; i < N; i++) {
 			// 시작시간이 큐의 첫번째 원소, 즉 가장 빨리 끝나는 수업보다 같거나 느리다면
 			if(time[i][0] >= pq.peek()) {
