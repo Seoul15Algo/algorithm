@@ -25,6 +25,7 @@ public class Main_1107 {
         for (int i = 0; i < MAX_BUTTONS; i++){
             buttons.add(String.valueOf(i));
         }
+        // 부서진 버튼은 buttons set에서 지움
         if (broken != 0){
             StringTokenizer st = new StringTokenizer(br.readLine());
             for (int i = 0; i < broken; i++){
@@ -44,11 +45,14 @@ public class Main_1107 {
     }
 
     static void find(String num) {
+
         for (String btn : buttons) {
             String temp = num + btn;
-            // 자릿수를 늘이거나 줄여야지 num에 가장 가까워질 수 있는 경우가 있으므로
+
             min = Math.min(min, Math.abs(n - Integer.parseInt(temp)) + temp.length());
 
+            // 자릿수를 하나 늘리거나 줄일 때 더 차이가 작아지는 경우가 있으므로
+            // 최대 6자리까지 모두 탐색
             if (temp.length() < 6) {
                 find(temp);
             }

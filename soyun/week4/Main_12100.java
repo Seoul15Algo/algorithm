@@ -33,6 +33,7 @@ public class Main_12100 {
 
     static void game(int cnt){
 
+        // 5번 움직인 후의 최댓값을 구한다.
         if (cnt == 5){
             for (int i = 0; i < n; i++){
                 for (int j = 0; j < n; j++) {
@@ -48,6 +49,7 @@ public class Main_12100 {
             copied[i] = Arrays.copyOf(map[i], n);
         }
 
+        // 모든 경우의 수 탐색
         for (int dir = 0; dir < 4; dir++) {
             swipe(dir);
             game(cnt + 1);
@@ -66,16 +68,26 @@ public class Main_12100 {
                     int idx = 0;
                     int number = 0;
                     for (int j = 0; j < n; j++) {
+                        // 해당 칸이 0이 아니라면 -> 합치거나 이동시키거나 해야 함
                         if (map[j][i] != 0){
+                            // number(직전 블록의 숫자)와 같은 수라면 -> 합친다
                             if (number == map[j][i]){
+                                // 해당 블록을 0으로 만듦
                                 map[j][i] = 0;
+                                // 직전 블록의 숫자를 2배
                                 map[idx - 1][i] = number * 2;
+                                // 한 번 합쳐진 블록은 또 합쳐질 수 없으므로
                                 number = 0;
                             }
+                            // 직전 블록의 숫자와 다른 수라면 -> 이동시킨다
                             else {
+                                // number를 갱신한다
                                 number = map[j][i];
+                                // 기존 블록을 이동시킬 것이므로 기존 블록은 0
                                 map[j][i] = 0;
+                                // 목적지 블록의 숫자를 기존 블록의 숫자로 갱신
                                 map[idx][i] = number;
+                                // 목적지 블록의 뒤를 가리킴(목적지 갱신)
                                 idx++;
                             }
                         }

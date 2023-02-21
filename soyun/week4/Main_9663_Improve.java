@@ -39,6 +39,8 @@ public class Main_9663_Improve {
     static boolean validate(int idx){
 
         for (int i = 0; i < idx; i++) {
+            // 같은 열에 있거나
+            // 대각선 상의 위치에 있다면 경우의 수에서 제외
             if (chessBoard[idx] == chessBoard[i] || idx - i == Math.abs(chessBoard[idx] - chessBoard[i]))
                 return false;
         }
