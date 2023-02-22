@@ -46,20 +46,38 @@ public class Main_12100 {
 				
 				if (top == null) {
 					copyMap[empty][c] = now;
+<<<<<<< HEAD
 					top = new Node(empty, c, now);
 					
+=======
+					
+					top = new Node(empty, c, now);
+>>>>>>> 0317ec5b910ad2061e19735a0aec6117ebc851bd
 					continue;
 				}
 
 				if (top.num == now) {
+<<<<<<< HEAD
 					copyMap[empty++][c] = now * 2;
+=======
+					now *= 2;
+					copyMap[top.x][c] = now;
+					
+					empty = top.x + 1;
+>>>>>>> 0317ec5b910ad2061e19735a0aec6117ebc851bd
 					top = null;
 					
 					continue;
 				}
+<<<<<<< HEAD
 
 				copyMap[++empty][c] = now;
 				top = new Node(empty, c, now);
+=======
+								
+				copyMap[top.x + 1][c] = now;
+				top = new Node(top.x + 1, c, now);
+>>>>>>> 0317ec5b910ad2061e19735a0aec6117ebc851bd
 			}
 		}
 	}
@@ -84,14 +102,26 @@ public class Main_12100 {
 				}
 
 				if (top.num == now) {
+<<<<<<< HEAD
 					copyMap[empty--][c] = now * 2;
+=======
+					now *= 2;
+					copyMap[top.x][c] = now;
+					
+					empty = top.x - 1;
+>>>>>>> 0317ec5b910ad2061e19735a0aec6117ebc851bd
 					top = null;
 					
 					continue;
 				}
 
+<<<<<<< HEAD
 				copyMap[--empty][c] = now;
 				top = new Node(empty, c, now);
+=======
+				copyMap[top.x - 1][c] = now;
+				top = new Node(top.x - 1, c, now);
+>>>>>>> 0317ec5b910ad2061e19735a0aec6117ebc851bd
 			}
 		}
 	}
@@ -116,14 +146,26 @@ public class Main_12100 {
 				}
 				
 				if(top.num == now) {
+<<<<<<< HEAD
 					copyMap[r][empty++] = now * 2;
+=======
+					now *= 2;
+					copyMap[r][top.y] = now;
+					
+					empty = top.y + 1;
+>>>>>>> 0317ec5b910ad2061e19735a0aec6117ebc851bd
 					top = null;
 					
 					continue;
 				}
 
+<<<<<<< HEAD
 				copyMap[r][++empty] = now;
 				top = new Node(r, empty, now);
+=======
+				copyMap[r][top.y + 1] = now;
+				top = new Node(r, top.y + 1, now);
+>>>>>>> 0317ec5b910ad2061e19735a0aec6117ebc851bd
 			}
 		}
 	}
@@ -148,14 +190,26 @@ public class Main_12100 {
 				}
 				
 				if(top.num == now) {
+<<<<<<< HEAD
 					copyMap[r][empty--] = now * 2;
+=======
+					now *= 2;
+					copyMap[r][top.y] = now;
+					
+					empty = top.y - 1;
+>>>>>>> 0317ec5b910ad2061e19735a0aec6117ebc851bd
 					top = null;
 					
 					continue;
 				}
 
+<<<<<<< HEAD
 				copyMap[r][--empty] = now;
 				top = new Node(r, empty, now);
+=======
+				copyMap[r][top.y - 1] = now;
+				top = new Node(r, top.y - 1, now);
+>>>>>>> 0317ec5b910ad2061e19735a0aec6117ebc851bd
 			}
 		}
 	}
@@ -220,5 +274,8 @@ public class Main_12100 {
 
 		System.out.println(result);
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0317ec5b910ad2061e19735a0aec6117ebc851bd
 }
