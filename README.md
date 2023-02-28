@@ -24,7 +24,7 @@
     - 구현, 그래프(DFS, BFS), 그리디(Greedy), 완전탐색(brute force)
     - 해시 테이블(Hash Table), 스택(Stack), 큐(Queue), 힙(Heap)
     - 정렬(Sort), 이분탐색(Binary Search), 동적 프로그래밍(DP)
-    - 투포인터(Two Pointer), 최소 신장 트리(MST), 유니온 파인드(Union-Find)
+    - 투포인터(Two Pointer), 슬라이딩 윈도우(Sliding Window), 최소 신장 트리(MST), 유니온 파인드(Union-Find)
 
 
 ## Rule
