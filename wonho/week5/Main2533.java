@@ -17,6 +17,7 @@ public class Main2533 {
 
         graph = new ArrayList<>();
         int n = Integer.parseInt(br.readLine());
+        // n의 범위가 2부터 1000000까지기 때문에 1000001로 초기화
         dp = new int[1000001][2];
         visited = new boolean[1000001];
 
