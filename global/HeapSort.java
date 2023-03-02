@@ -4,6 +4,10 @@ public class HeapSort {
 
     private int[] array;
 
+    public HeapSort() {
+        this(new int[] { 5, 7, 3, 1, 2, 6, 8, 4 });
+    }
+
     public HeapSort(int[] array) {
         this.array = Arrays.copyOf(array, array.length);
     }
