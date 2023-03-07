@@ -7,8 +7,8 @@ import java.util.PriorityQueue;
 
 public class Main_1377 {
 	static class Num implements Comparable<Num> {
-		int data; // °ª
-		int idx; // ÃÊ±â ÀÎµ¦½º
+		int data; // ê°’ 
+		int idx; // ì´ˆê¸° ì¸ë±ìŠ¤
 		
 		public Num(int data, int idx) {
 			this.data = data;
@@ -37,10 +37,10 @@ public class Main_1377 {
 		for (int i = 0; i < N; i++) {
 			Num num = pq.poll();
 
-			if (i - num.idx >= 0) // Á¤·Ä °úÁ¤¿¡¼­ µÚ·Î ¹Ğ·Á³ª°Ô µÈ °æ¿ì
+			if (i - num.idx >= 0) // ì •ë ¬ ê³¼ì •ì— ì˜í•´ ë’¤ë¡œ ë°€ë ¤ë‚œ ìˆ˜
 				continue;
 			
-			// ÀÎµ¦½º°¡ °¡Àå Å©°Ô °¨¼ÒÇÑ °ª(Àı´ë µÚ·Î °¡Áö ¾Ê´Â ¼ö)ÀÇ Àı´ë°ªÀÌ Á¤·Ä °úÁ¤ µ¿¾È µÚ·Î °£ ¼öÀÇ °³¼ö(Á¤·Ä ¼öÇà È½¼ö)¿Í °°´Ù.
+			// ì¸ë±ìŠ¤ê°€ ê°€ì¥ ë§ì´ ê°ì†Œí•œ ê°’ì´ ì •ë ¬ ê³¼ì •ì— ì˜í•´ ë’¤ë¡œ ë°€ë ¤ë‚œ ìˆ˜ì˜ ê°œìˆ˜(ì •ë ¬ì´ ìˆ˜í–‰ëœ íšŸìˆ˜)
 			cnt = Math.min(cnt, i - num.idx);
 		}
 	

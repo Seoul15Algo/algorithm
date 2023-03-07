@@ -2,13 +2,6 @@ package week6;
 
 import java.util.Arrays;
 
-/*
- * 병합 정렬 :
- * - 분할 : 입력 배열을 동일한 크기의 2개의 부분 배열로 분할
- * - 정복 : 부분 배열 정렬 
- * - 결합 : 정렬된 부분 배열을 하나의 배열로 합병
- */
-
 public class MergeSort {
 
     private int[] array;

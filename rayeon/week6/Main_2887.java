@@ -97,38 +97,38 @@ public class Main_2887 {
 			planets.add(new Planet(i, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
 		}
 		
-		// x ±âÁØ Á¤·Ä
+		// x ê¸°ì¤€ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 		planets.sort(new Comparator<Planet>() {
 			@Override
 			public int compare(Planet o1, Planet o2) {
 				return Integer.compare(o1.x, o2.x);
 			}
 		});
-		// x °ªÀÌ °¡±î¿î Çà¼ºµéÀ» ¿¬°áÇÏ´Â °£¼± »ı¼º
+		// x ê°’ì´ ê°€ê¹Œìš´ í–‰ì„±ë“¤ì„ ì—°ê²°í•˜ëŠ” ê°„ì„  ìƒì„±
 		for (int i = 0; i < N-1; i++) {
 			edges.offer(new Edge(planets.get(i).idx, planets.get(i+1).idx, Math.abs(planets.get(i).x - planets.get(i+1).x)));
 		}
 		
-		// y ±âÁØ Á¤·Ä
+		// y ê¸°ì¤€ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 		planets.sort(new Comparator<Planet>() {
 			@Override
 			public int compare(Planet o1, Planet o2) {
 				return Integer.compare(o1.y, o2.y);
 			}
 		});
-		// y °ªÀÌ °¡±î¿î Çà¼ºµéÀ» ¿¬°áÇÏ´Â °£¼± »ı¼º
+		// y ê°’ì´ ê°€ê¹Œìš´ í–‰ì„±ë“¤ì„ ì—°ê²°í•˜ëŠ” ê°„ì„  ìƒì„±
 		for (int i = 0; i < N-1; i++) {
 			edges.offer(new Edge(planets.get(i).idx, planets.get(i+1).idx, Math.abs(planets.get(i).y - planets.get(i+1).y)));
 		}
 		
-		// z ±âÁØ Á¤·Ä
+		// z ê¸°ì¤€ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 		planets.sort(new Comparator<Planet>() {
 			@Override
 			public int compare(Planet o1, Planet o2) {
 				return Integer.compare(o1.z, o2.z);
 			}
 		});
-		// x °ªÀÌ °¡±î¿î Çà¼ºµéÀ» ¿¬°áÇÏ´Â °£¼± »ı¼º
+		// z ê°’ì´ ê°€ê¹Œìš´ í–‰ì„±ë“¤ì„ ì—°ê²°í•˜ëŠ” ê°„ì„  ìƒì„±
 		for (int i = 0; i < N-1; i++) {
 			edges.offer(new Edge(planets.get(i).idx, planets.get(i+1).idx, Math.abs(planets.get(i).z - planets.get(i+1).z)));
 		}

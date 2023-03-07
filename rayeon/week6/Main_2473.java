@@ -23,7 +23,7 @@ public class Main_2473 {
 		long result = Long.MAX_VALUE;
 		int[] idx = new int[3];
 		
-		// ╟║юЕ юшю╨ ╪Ж╦╕ ╟Ма╓╫це╟╦И╪╜ гуюл 0╟З ╟║╠Н©Н ╪Ж цё╠Б
+		// Й╟─Л·╔ Л·▒Л²─ Л┬≤К╔╪ ЙЁ═Л═∙М∙≤ЙЁ═ М∙╘Л²╢ 0ЙЁ╪ Й╟─Л·╔ Й╟─Й╧▄Л ╢ Й╡╫Л ╟ Л╟╬Й╦╟
 		for (int left = 0; left < N-2; left++) {
 			int mid = left + 1;
 			int right = N - 1;
