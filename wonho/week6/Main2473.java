@@ -19,18 +19,18 @@ public class Main2473 {
         }
 
         Arrays.sort(numbers);
-        //
-        // System.out.println(Arrays.toString(numbers));
 
         long minLeft = numbers[0];
         long minRight = numbers[n - 1];
         long minMid = numbers[(n - 1) / 2];
         long minTotal = Long.MAX_VALUE;
 
+        // 가운데 값을 순차적으로 탐색하며, 양 끝 값을 투포인터로 탐색한다.
         for (int i = 1; i < n - 1; i++) {
             boolean isZero = false;
             int left = 0;
             int right = n - 1;
+            // 중간 포인터와 만나기 전까지 탐색
             while (left < i && i < right) {
                 long l = numbers[left];
                 long r = numbers[right];
@@ -38,6 +38,7 @@ public class Main2473 {
                 long sum = l + m + r;
                 long absSum = Math.abs(l + m + r);
 
+                // 합이 0이면 break
                 if (absSum == 0) {
                     isZero = true;
                     minLeft = l;
@@ -60,6 +61,7 @@ public class Main2473 {
                 right--;
             }
 
+            // 0이였다면 break
             if (isZero) {
                 break;
             }

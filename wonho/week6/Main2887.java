@@ -50,6 +50,7 @@ public class Main2887 {
 
         Queue<Edge> edges = new PriorityQueue<>(Comparator.comparingInt(Edge::getDistance));
 
+        // x, y, z로 각각 정렬하여 각각 서로 연결한 간선들을 edges에 삽입
         for (int i = 0; i < 3; i++) {
             int finalI = i;
             planets.sort(Comparator.comparingInt(v -> v[finalI]));
@@ -65,6 +66,7 @@ public class Main2887 {
             }
         }
 
+        // kruskal
         int count = 0;
         int total = 0;
         while (count < n - 1) {
