@@ -12,51 +12,33 @@ public class MergeSort {
         this.array = Arrays.copyOf(array, array.length);
     }
 
-    // 구현 - 필요하면 매개변수와 메서드를 추가해도 됩니다.
+    // 구현 - 필요하면 매개변수와 메서드를 추가해도 됩니다.    
     public void sort() {
-        mergeSort(Arrays.copyOf(array, array.length), 0, array.length -1);
+    	mergeSort(Arrays.copyOf(array, array.length),0,array.length);
     }
-    
-    public void mergeSort(int tmp[], int start, int end) {
-        if (start < end) {
-            int middle = (start + end) / 2;
+    public void mergeSort(int[] tmp, int start, int end) {
+		if(start+1== end) return;
+		int mid = (start+end)/2;
+		mergeSort(tmp,start,mid);
+		mergeSort(tmp,mid,end);
+		merge(tmp,start,end);
+	}
 
-            mergeSort(tmp, start, middle);
-            mergeSort(tmp, middle + 1, end);
-            merge(tmp, start, middle, end);
-        }
-    }
-    
-    public void merge(int tmp[], int start, int middle, int end) {
-        int i = start; 
-        int j = middle + 1; 
-        int k = start;
-
-        while (i <= middle && j <= end) {
-            if (tmp[i] <= tmp[j]) {
-                array[k] = tmp[i++];
-            } else {
-                array[k] = tmp[j++];
-            }
-            
-            k++;
-        }
-
-        if (i > middle) {
-            for (int l = j; l <= end; l++) {
-                array[k++] = tmp[l];
-            }
-        } else {
-            for (int l = i; l <= middle; l++) {
-                array[k++] = tmp[l];
-            }
-        }
-
-        for (int l = start; l <= end; l++) {
-            tmp[l] = array[l];
-        }
-    }
-    //
+	public void merge(int[] tmp, int start, int end) {
+		int mid = (start+end)/2;
+		int left = start;
+		int right = mid;
+		for (int i = start; i < end; i++) {
+			if(left == mid) tmp[i] = array[right++];
+			else if(right == end) tmp[i] = array[left++];
+			else if(array[left] <= array[right]) tmp[i] = array[left++];
+			else tmp[i] = array[right++];
+		}
+		for (int i = start; i < end; i++) {
+			array[i] = tmp[i];
+		}
+		
+	}
 
     public void printArray() {
         System.out.println(Arrays.toString(array));
