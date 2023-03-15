@@ -27,8 +27,8 @@ public class Main12865 {
             if (weight > k) {
                 continue;
             }
-            for (int j = k - weight; j >= 0; j--) {
-                dp[weight + j] = Math.max(dp[weight + j], things[i][1] + dp[j]);
+            for (int j = k; j >= weight; j--) {
+                dp[j] = Math.max(dp[j], things[i][1] + dp[j - weight]);
             }
         }
 
