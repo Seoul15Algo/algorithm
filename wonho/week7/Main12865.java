@@ -19,15 +19,17 @@ public class Main12865 {
             String[] wv = br.readLine().split(" ");
             int w = Integer.parseInt(wv[0]);
             int v = Integer.parseInt(wv[1]);
-            things[i] = new int[]{w, v};
+            things[i] = new int[] { w, v };
         }
 
         for (int i = 1; i <= n; i++) {
-            int weight = things[i][0];
+            int weight = things[i][0]; // 현재 물건의 무게
             if (weight > k) {
                 continue;
             }
+            // 가방의 최대 무게부터 현재 무게까지
             for (int j = k; j >= weight; j--) {
+                // 해당 무게에 있는 최대 가치와 (현재 + 현재를 뺀 최대 무게일 때 가치)를 비교하여 최대값 삽입
                 dp[j] = Math.max(dp[j], things[i][1] + dp[j - weight]);
             }
         }

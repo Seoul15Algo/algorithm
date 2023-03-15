@@ -24,6 +24,7 @@ public class Main14002 {
         int max = 1;
         for (int i = 1; i < n; i++) {
             for (int j = i - 1; j >= 0; j--) {
+                // 이전마다 돌며 작은 수가 나올때마다 횟수 최대값 비교하며 갱신
                 if (numbers[i] > numbers[j]) {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }

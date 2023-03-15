@@ -15,6 +15,7 @@ public class Main9251 {
 
         int[][] dp = new int[s1Length + 1][s2Length + 1];
 
+        // 2차원 배열을 통해 LCS 연산
         for (int i = 1; i <= s1Length; i++) {
             char s1Char = s1.charAt(i - 1);
             for (int j = 1; j <= s2Length; j++) {
