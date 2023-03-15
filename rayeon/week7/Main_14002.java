@@ -32,12 +32,13 @@ public class Main_14002 {
 		
 		for (int i = 1; i < N; i++) {
 			for (int j = 0; j < i; j++) {
+				// 이전 데이터가 현재 데이터보다 작은 경우, 이전 데이터의 dp값에 1을 더한 값과 현재 데이터의 dp값을 비교
 				if (numbers[j].data < numbers[i].data) {
 					numbers[i].dp = Math.max(numbers[i].dp, numbers[j].dp + 1);
 				}
 			}
 		}
-		
+
 		Arrays.sort(numbers, new Comparator<Number>() {
 			@Override
 			public int compare(Number o1, Number o2) {

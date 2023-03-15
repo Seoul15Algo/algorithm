@@ -21,7 +21,7 @@ public class Main_9251 {
 			for (int j = 1; j < C; j++) {
 				char c2 = str2[j-1];
 
-				if (c1 == c2) {
+				if (c1 == c2) {// 두 문자가 같은 경우, 이전 대각선 dp값 + 1 저장
 					dp[i][j] = dp[i-1][j-1] + 1;
 				} else {
 					dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);

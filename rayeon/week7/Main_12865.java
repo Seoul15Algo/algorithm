@@ -25,9 +25,10 @@ public class Main_12865 {
 			int v = Integer.parseInt(st.nextToken());
 			
 			for (int j = 1; j <= K; j++) {
+				// 우선 이전 값을 저장
 				dp[i+1][j] = dp[i][j];
 				
-				if (j - w >= 0) {
+				if (j - w >= 0) { // 무게가 남는 경우, 현재 무게의 가치와 남는 무게의 가치를 더한 값과 기존 가치를 비교
 					dp[i+1][j] = Math.max(dp[i+1][j], dp[i][j-w] + v);
 				}
 			}
