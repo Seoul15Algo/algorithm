@@ -48,6 +48,8 @@
     - 2473(세 용액), 1377(버블 소트), 2887(행성 터널)
 - **<7주차> 동적 프로그래밍(Dynamic Programming)**
     - 12865(평범한 배낭), 9251(LCS), 1309(동물원), 14002(가장 긴 증가하는 부분 수열 4)
+- **<8주차> 세그먼트 트리/최소 스패닝 트리(Segment Tree/MST)**
+    - 1774(우주신과의 교감), 2357(최솟값과 최댓값), 11505(구간 곱 구하기), 14621(나만 안되는 연애)
 
 
 ## Member
@@ -59,6 +61,7 @@
         <td><img src="https://avatars.githubusercontent.com/u/57997390?v=4" width="130"></td>
         <td><img src="https://avatars.githubusercontent.com/u/73294363?v=4" width="130"></td>
         <td><img src="https://avatars.githubusercontent.com/u/123184860?v=4" width="130"></td>
+        <td><img src="https://avatars.githubusercontent.com/u/81673820?v=4" width="130"></td>
     </tr>
     <tr align=center>
         <td><a href='https://github.com/rt3310'>rt3310</a></td>
@@ -67,6 +70,7 @@
         <td><a href='https://github.com/wancern'>wancern</a></td>
         <td><a href='https://github.com/yeeeooonn'>yeeeooonn</a></td>
         <td><a href='https://github.com/zoeyvarnax'>zoeyvarnax</a></td>
+        <td><a href='https://github.com/zoeyvarnax'>seo-jio</a></td>
     </tr>
     <tr align=center>
         <td>서원호</td>
@@ -75,5 +79,6 @@
         <td>이현구</td>
         <td>이수연</td>
         <td>한라연</td>
+        <td>서지오</td>
     </tr>
 </table>
