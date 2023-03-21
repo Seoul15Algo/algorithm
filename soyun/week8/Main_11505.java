@@ -20,7 +20,7 @@ public class Main_11505 {
 
         // left partition, right partition을 합침 -> 그때의 곱셈 연산 결과
         private long merge(long left, long right) {
-            // sum 을 구하고 싶은 경우
+ 
             return (left * right) % DIV;
         }
 
@@ -44,7 +44,7 @@ public class Main_11505 {
             long leftVal = buildRec(arr, node * 2, nodeLeft, mid);
             long rightVal = buildRec(arr, node * 2 + 1, mid + 1, nodeRight);
 
-            // 두 파티션을 합쳤을 때의 최소/최대값을 반환
+            // 두 파티션을 합쳤을 때의 곱셈 연산 결과 반환
             return tree[node] = merge(leftVal, rightVal);
         }
 
