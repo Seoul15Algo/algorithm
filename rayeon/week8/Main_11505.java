@@ -98,11 +98,7 @@ public class Main_11505 {
 			if (a == 1) {
 				nums[b] = c;
 				
-				if (nums[b] == 0) { // 새로 갱신한 값이 0인 경우
-					setValue(0, N-1, 1); // 트리의 값을 새로 설정
-				} else { // 0이 아닌 경우
-					updateValue(b, 0, N-1, 1); // 업데이트할 인덱스가 포함된 구간만 트리 갱신
-				}			
+				updateValue(b, 0, N-1, 1);
 				
 				continue;
 			}
