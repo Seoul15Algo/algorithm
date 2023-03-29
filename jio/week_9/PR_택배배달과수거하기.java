@@ -1,60 +1,95 @@
-class PR_택배배달과수거하기 {
-    static int[] nums; //각 이모티콘에 적용할 할인율을 저장할 배열
-    static int[] discounts;
-    static int N;
-    static int[][] users;
-    static int[] emoticons;
-    static int maxEmoplusCnt;
-    static int maxSell;
+import java.util.*;
 
-    public int[] solution(int[][] users, int[] emoticons) {
-        // this.users = users;
-        // this.emoticons = emoticons;
-        discounts = new int[]{10, 20, 30, 40};
-        N = emoticons.length;
-        maxEmoplusCnt = 0;
-        maxSell = Integer.MIN_VALUE;
+class Solution {
+    int[] deliveries;
+    int[] pickups;
+    int N;
+    int cap;
+    long totalDis;
 
-        nums = new int[N];
-        perm(0, users, emoticons);
+    class Pair{
+        int idx;
+        int count;
 
-        int[] answer = {maxEmoplusCnt, maxSell};
-        return answer;
+        Pair(int idx, int count) {
+            this.idx = idx;
+            this.count = count;
+        }
+    }
+    List<Pair> validDeliveries;
+    List<Pair> validPickups;
+    int maxDeliveryIdx;
+    int maxPickupIdx;
+
+
+    public long solution(int cap, int n, int[] deliveries, int[] pickups) {
+        this.deliveries = deliveries;
+        this.pickups = pickups;
+        this.N = n;
+        this.cap = cap;
+        this.totalDis = 0; //최종 이동 거리
+
+        validDeliveries = new ArrayList<>(); //배달해야 할 택배가 있는 집
+        validPickups = new ArrayList<>(); //수거해야 할 택배가 있는 집
+
+        for(int i=0; i<N; i++){
+            if(deliveries[i] != 0){
+                validDeliveries.add(new Pair(i+1, deliveries[i]));
+            }
+            if(pickups[i] != 0){
+                validPickups.add(new Pair(i+1, pickups[i]));
+            }
+        }
+
+        maxDeliveryIdx = validDeliveries.size()-1; //배달 할 택배가 남아있는 집 중 가장 먼 집의 index
+        maxPickupIdx = validPickups.size()-1;      //수거 할 택배가 남아있는 집 중 가장 먼 집의 index
+        while(true){
+            int deliveryDis = delivery(); //배달 해야 할 최대 이동 거리
+            int pickupDis = pickup();     //수거 해야 할 최대 이동 거리
+            if(deliveryDis == 0 && pickupDis == 0){
+                break;
+            }
+            totalDis += (long) Math.max(deliveryDis, pickupDis) * 2; //배달해야 할 가장 먼 집과 수거해야 할 가장 먼 집 중 더 큰 값을 선택
+        }
+        return totalDis;
     }
 
-    private void perm(int cnt, int[][] users, int[] emoticons){ //중복순열
-        if(cnt == N){
-            int curSell = 0;
-            int curEmoplusCnt = 0;
-            for(int i=0; i<users.length; i++){ //사용자 순회
-                int userRate = users[i][0]; //사용자 비율
-                int userCost = users[i][1]; //사용자 비용
-                int tempSell = 0;
-                for(int j=0; j<nums.length; j++){ //사용자가 선택한 이모티콘 할인 가격의 합 계산
-                    int rate = nums[j];
-                    // System.out.printf("userRate : %d, rate :%d\n", userRate, rate);
-                    if(userRate <= rate){
-                        tempSell += emoticons[j] * (1 - (double)rate/100);
-                    }
-                }
-                if(tempSell >= userCost){ //구매한 이모티콘 비용의 합이 사용자 비용보다 클 때
-                    // System.out.printf("tempSell : %d\n", tempSell);
-                    curEmoplusCnt += 1;
-                }else{ //두 경우가 다른 로직을 처리는 걸 분명히 하기 위해 else 사용
-                    curSell += tempSell; //구매한 이모니콘 비용의 합이 사용자 비용보다 작을 경우
-                }
+    private int delivery() {
+        int maxDis = 0; //배달하기 위해 이동해야하는 최대 거리를 저장
+        int curDelivery = cap; //현재 트럭에 담겨있는 택배 수, 초기 값을 cap으로 지정
+        for (int i = maxDeliveryIdx; i > -1; i--) { //배달할 택배가 있는 가장 먼 집부터 가장 가까운 집으로 순회
+            Pair cur = validDeliveries.get(i);
+            if(maxDis == 0 && cur.count > 0){  //배달해야 할 택배가 남아있는 가장 먼 집의 거리를 저장 후 추후 return
+                maxDis = cur.idx;
             }
-            //현재 이모티콘 플러스가 더 크거나 이모티콘 플러스가 같고 현재 판매비용이 더 큰 경우 값 갱신
-            if(maxEmoplusCnt < curEmoplusCnt || (maxEmoplusCnt == curEmoplusCnt && maxSell < curSell)){
-                maxEmoplusCnt = curEmoplusCnt;
-                maxSell = curSell;
+            if(cur.count >= curDelivery){ //1. 현재 트럭에 담겨있는 택배 수 보다 집에 배달해야할 택배가 더 클 경우
+                cur.count -= curDelivery;
+                break;
             }
-            return;
+            //2. 현재 트럭에 담겨있는 택배 수가 집에 배달해야할 택배보다 더 클 경우
+            maxDeliveryIdx -= 1;       //가장 먼 집 index 갱신
+            curDelivery -= cur.count;  //트럭에 남아있는 택배 수 갱신
+            cur.count = 0;             //집에 남아있는 택배 수 갱신
         }
-        for(int i=0; i<4; i++){
-            nums[cnt] = discounts[i];
-            perm(cnt+1, users, emoticons);
-            nums[cnt] = 0; //없어도 됨
+        return maxDis;
+    }
+
+    private int pickup() { //delivery와 동일
+        int maxDis = 0;
+        int curPickup = cap;
+        for (int i = maxPickupIdx; i > -1; i--) {
+            Pair cur = validPickups.get(i);
+            if(maxDis == 0 && cur.count > 0){
+                maxDis = cur.idx;
+            }
+            if(cur.count >= curPickup){
+                cur.count -= curPickup;
+                break;
+            }
+            maxPickupIdx -= 1;
+            curPickup -= cur.count;
+            cur.count = 0;
         }
+        return maxDis;
     }
 }
