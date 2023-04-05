@@ -40,6 +40,7 @@ public class Main1509 {
                 dp[right] = 1;
                 break;
             }
+            // 팰린드롬 끝에서 현재까지의 그룹 개수 기록
             dp[right] = Math.min(dp[right], dp[left - 1] + 1);
             left--;
             right++;
@@ -61,6 +62,7 @@ public class Main1509 {
                 break;
             }
 
+            // 팰린드롬 끝에서 현재까지의 그룹 개수 기록
             dp[right] = Math.min(dp[right], dp[left - 1] + 1);
             left--;
             right++;

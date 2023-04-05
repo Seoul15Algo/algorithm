@@ -26,8 +26,8 @@ public class Main9466 {
     private static void testcase() throws IOException {
         int n = Integer.parseInt(br.readLine());
         int[] members = new int[n + 1];
-        int[] teamCheck = new int[n + 1];
-        int[] inDegree = new int[n + 1];
+        int[] teamCheck = new int[n + 1]; // 팀 여부, 1: 팀 X, 2: 팀 O, 0: 탐색 안함
+        int[] inDegree = new int[n + 1]; // 진입 차수
         StringTokenizer st = new StringTokenizer(br.readLine());
         int size = n;
         for (int i = 1; i <= n; i++) {
@@ -40,7 +40,7 @@ public class Main9466 {
         }
         
         for (int i = 1; i <= n; i++) {
-        	if (inDegree[i] == 0) {
+        	if (inDegree[i] == 0) { // 진입 차수 0이면 팀 X
         		teamCheck[i] = 1;
         	}
         }
@@ -55,7 +55,7 @@ public class Main9466 {
             List<Integer> visited = new ArrayList<>();
             while (count < size) {
                 visited.add(cur);
-                if (members[cur] == i) {
+                if (members[cur] == i) { // i와 cur이 같으면 사이클이므로 팀으로 등록
                     for (int member : visited) {
                         teamCheck[member] = 2;
                     }
@@ -63,7 +63,7 @@ public class Main9466 {
                     break;
                 }
                 
-                if (teamCheck[cur] != 0) {
+                if (teamCheck[cur] != 0) { // 방문 안했으면 방문
                     for (int member: visited) {
                     	if (teamCheck[members[member]] == 0) {
                     		teamCheck[members[member]] = 1;                    		
@@ -78,7 +78,7 @@ public class Main9466 {
         }
 
         int answer = 0;
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= n; i++) { // 팀이 아닌 경우 세기
             if (teamCheck[i] != 2) {
                 answer++;
             }

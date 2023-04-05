@@ -20,6 +20,7 @@ public class Main1918 {
                 continue;
             }
 
+            // 곱분 연산일 때
             if (s.equals("*") || s.equals("/")) {
                 while (!stack.isEmpty()) {
                     String pop = stack.pop();
@@ -33,6 +34,7 @@ public class Main1918 {
                 continue;
             }
 
+            // 합차 연산일 때
             if (s.equals("+") || s.equals("-")) {
                 while (!stack.isEmpty()) {
                     String pop = stack.pop();
@@ -46,6 +48,7 @@ public class Main1918 {
                 continue;
             }
 
+            // 괄호일 때
             if (s.equals(")")) {
                 while (!stack.isEmpty()) {
                     String pop = stack.pop();

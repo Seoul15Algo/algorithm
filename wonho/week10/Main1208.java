@@ -21,13 +21,15 @@ public class Main1208 {
         s = Integer.parseInt(ns[1]);
         leftCounts = new HashMap<>();
         rightCounts = new HashMap<>();
-        int mid = n / 2;
+        int mid = n / 2; // 반으로 나눔
 
         numbers = new long[n];
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             numbers[i] = Long.parseLong(st.nextToken());
         }
+
+        // 반 씩 탐색
         leftSearch(0, mid, 0);
         rightSearch(mid, n, 0);
 
