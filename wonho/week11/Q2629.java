@@ -24,6 +24,7 @@ public class Q2629 {
             marbles.add(Integer.parseInt(st.nextToken()));
         }
 
+        // 가능한 수 기록하면서 체크
         int[] check = new int[40001];
         int limit = 0;
         for (int i = 0; i < weightSize; i++) {
@@ -32,7 +33,7 @@ public class Q2629 {
             limit = Math.max(limit, weight);
             int max = 0;
             for (int j = 1; j <= limit; j++) {
-                if (check[j] != 0 && check[j] != i + 1) {
+                if (check[j] != 0 && check[j] != i + 1) { // 현재 반복 타임에 추가된게 아닌 것만
                     check[Math.abs(j - weight)] += i + 1;
                     check[j + weight] += i + 1;
                     max = Math.max(max, j + weight);

@@ -30,6 +30,8 @@ public class Q13334 {
         int size = Integer.parseInt(br.readLine());
 
         int maxCount = 0;
+        // Queue에 이전 값들을 넣고, 이전 값들의 출발점들을 오름차순으로 정렬
+        // 만약 현재 출발점이 이전 출발점을 넘어 선 경우라면 뺀다. 
         Queue<int[]> prev = new PriorityQueue<>(Comparator.comparingInt(v -> v[0]));
         int count = 0;
         int end = -100_000_001;

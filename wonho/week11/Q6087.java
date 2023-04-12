@@ -64,7 +64,7 @@ public class Q6087 {
                 }
 
                 int nextMirror = 0;
-                if (curDirection != -1 && curDirection != i) {
+                if (curDirection != -1 && curDirection != i) { // 방향 전환 됐을 때만 + 1
                     nextMirror++;
                 }
 

@@ -128,6 +128,7 @@ public class Q13460 {
         }
     }
 
+    // 횡이동
     private static void moveBallInColumn(int row, int col, int step, String[][] map) {
         String ball = map[row][col];
         map[row][col] = ".";
@@ -151,6 +152,7 @@ public class Q13460 {
         }
     }
 
+    // 종이동
     private static void moveBallInRow(int row, int col, int step, String[][] map) {
         String ball = map[row][col];
         map[row][col] = ".";
