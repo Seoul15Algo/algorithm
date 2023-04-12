@@ -24,7 +24,7 @@ public class Q6087 {
             for (int j = 0; j < w; j++) {
                 map[i][j] = row[j];
                 if (map[i][j].equals("C")) {
-                    cList.add(new int[]{i, j});
+                    cList.add(new int[] { i, j });
                 }
             }
         }
@@ -34,12 +34,12 @@ public class Q6087 {
 
     public static int search(int[] start, int[] dest) {
         Queue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(v -> v[2]));
-        int[][] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+        int[][] directions = { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
         int[][] weights = new int[h][w];
         for (int i = 0; i < h; i++) {
             Arrays.fill(weights[i], Integer.MAX_VALUE);
         }
-        pq.offer(new int[]{start[0], start[1], -1, 0});
+        pq.offer(new int[] { start[0], start[1], -1, 0 });
         weights[start[0]][start[1]] = 0;
 
         while (!pq.isEmpty()) {
@@ -70,7 +70,7 @@ public class Q6087 {
 
                 if (weights[row][col] > weights[cur[0]][cur[1]] + nextMirror) {
                     weights[row][col] = weights[cur[0]][cur[1]] + nextMirror;
-                    pq.offer(new int[]{row, col, i, weights[cur[0]][cur[1]] + nextMirror});
+                    pq.offer(new int[] { row, col, i, weights[cur[0]][cur[1]] + nextMirror });
                 }
             }
         }

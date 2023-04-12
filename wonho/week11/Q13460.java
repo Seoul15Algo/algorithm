@@ -31,13 +31,10 @@ public class Q13460 {
             map[i] = row;
             for (int j = 0; j < m; j++) {
                 if (row[j].equals("R")) {
-                    redInit = new int[]{i, j};
+                    redInit = new int[] { i, j };
                 }
                 if (row[j].equals("B")) {
-                    blueInit = new int[]{i, j};
-                }
-                if (row[j].equals("O")) {
-                    hole = new int[]{i, j};
+                    blueInit = new int[] { i, j };
                 }
             }
         }
@@ -49,7 +46,7 @@ public class Q13460 {
 
         System.out.println(min == Integer.MAX_VALUE ? -1 : min);
     }
-    
+
     public static void search(int count, int direction) {
         if (count == 9) {
             redSink = false;
@@ -69,7 +66,7 @@ public class Q13460 {
         visited[count + 1] = (direction + 1) % 2 + 2;
         search(count + 1, (direction + 1) % 2 + 2);
     }
-    
+
     public static int round() {
         String[][] copy = new String[n][m];
         for (int i = 0; i < n; i++) {
@@ -85,16 +82,6 @@ public class Q13460 {
             }
         }
         return -1;
-    }
-
-    public static void print(String[][] map) {
-        for (String[] row : map) {
-            for (String v : row) {
-                System.out.print(v + " ");
-            }
-            System.out.println();
-        }
-        System.out.println();
     }
 
     public static void tilt(int direction, String[][] map) {
@@ -158,9 +145,9 @@ public class Q13460 {
         }
         map[row][cur - step] = ball;
         if (ball.equals("R")) {
-            red = new int[]{row, cur - step};
+            red = new int[] { row, cur - step };
         } else {
-            blue = new int[]{row, cur - step};
+            blue = new int[] { row, cur - step };
         }
     }
 
@@ -181,9 +168,9 @@ public class Q13460 {
         }
         map[cur - step][col] = ball;
         if (ball.equals("R")) {
-            red = new int[]{cur - step, col};
+            red = new int[] { cur - step, col };
         } else {
-            blue = new int[]{cur - step, col};
+            blue = new int[] { cur - step, col };
         }
     }
 }

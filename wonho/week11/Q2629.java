@@ -25,20 +25,20 @@ public class Q2629 {
         }
 
         int[] check = new int[40001];
-        int max = 0;
+        int limit = 0;
         for (int i = 0; i < weightSize; i++) {
             int weight = weights.get(i);
             check[weight] += i + 1;
-            max = Math.max(max, weight);
-            int maxNumber = 0;
-            for (int j = 1; j <= max; j++) {
+            limit = Math.max(limit, weight);
+            int max = 0;
+            for (int j = 1; j <= limit; j++) {
                 if (check[j] != 0 && check[j] != i + 1) {
                     check[Math.abs(j - weight)] += i + 1;
                     check[j + weight] += i + 1;
-                    maxNumber = Math.max(maxNumber, j + weight);
+                    max = Math.max(max, j + weight);
                 }
             }
-            max = Math.max(max, maxNumber);
+            limit = Math.max(limit, max);
         }
 
         for (int marble : marbles) {
