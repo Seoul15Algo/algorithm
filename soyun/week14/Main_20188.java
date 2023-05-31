@@ -28,16 +28,18 @@ public class Main_20188 {
 
         DFS(1, 1);
         long answer = 0;
+        // 1번 노드는 루트노드이므로 고려대상이 아님
         for (int i = 2; i <= N; i++) {
-            int X = N - subtree[i]; // X는 해당 간선을 사용하지 않는 노드의 개수
-            // 전체 노드 쌍 - 해당 간선을 사용하지 않는 노드들의 쌍 = 해당 간선을 활용하는 총 횟수
-            answer += selectNodePair(N) - selectNodePair(X);
+            int X = N - subtree[i]; // X는 해당 간선 아래에 존재하지 않는 노드의 개수
+            // 해당 간선을 활용하는 총 횟수 =
+            // 전체 노드 쌍 개수 - 해당 간선 아래에 존재하지 않는 노드들의 쌍 개수
+            answer += countNodePair(N) - countNodePair(X);
         }
         System.out.println(answer);
     }
 
     // nC2
-    public static long selectNodePair(int n) {
+    public static long countNodePair(int n) {
         return 1L * n * (n - 1) / 2;
     }
 
@@ -45,7 +47,9 @@ public class Main_20188 {
     public static int DFS(int cur, int parent) {
         subtree[cur] = 1;
         for (int child : tree[cur]) {
-            if (child == parent) continue;
+            if (child == parent) {
+                continue;
+            }
             subtree[cur] += DFS(child, cur);
         }
         return subtree[cur];
