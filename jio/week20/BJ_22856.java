@@ -39,50 +39,39 @@ public class BJ_22856 {
 
         lastNode = inOrderStatus.get(N - 1); // 중위 순회의 마지막 노드
 
-        similarInOrderStatus = new ArrayList<>();  // 유사 중위 순회 경로 저장
-//        visited = new boolean[N + 1];
-//        visited[0] = true;
-        visitedCnt = 1;
+        similarInOrderStatus = new ArrayList<>();  // 유사 중위 순회 경로 저장, 꼭 필요하진 않지만 과정을 확인하기 위해 추가
+        visited = new boolean[N + 1];
+        visited[0] = true;
 
         similarInOrder(1);
     }
 
     private static void similarInOrder(int cur) { // 유사 중위 순회
-//        System.out.println("cur = " + cur);
-//        System.out.println("visitedCnt = " + visitedCnt);
         similarInOrderStatus.add(cur);
-//        visited[cur] = true;
+
+        if (!visited[cur]) {
+            visited[cur] = true;
+            visitedCnt++; // 방문한 노드 수 증가
+        }
 
         Node curNode = tree[cur]; //현재 노드
         int left = curNode.left;
         int right = curNode.right;
 
         if (left != -1) { // 왼쪽 자식 노드가 있는 경우 왼쪽으로 탐색 진행
-            visitedCnt++;
-            similarInOrder(left);
+            similarInOrder(curNode.left);
             similarInOrderStatus.add(cur); // 탐색 후 부모 노드를 경로에 추가
         }
 
         if (right != -1) { // 오른쪽 자식 노드가 있는 경우 오른쪽으로 탐색 진행
-            visitedCnt++;
-            similarInOrder(right);
+            similarInOrder(curNode.right);
             similarInOrderStatus.add(cur);  // 탐색 후 부모 노드를 경로에 추가
         }
 
         if (visitedCnt == N && cur == lastNode) { // 모든 노드를 방문하고 중위 순회의 마지막 노드와 일치할 경우 탐색 종료
             System.out.println(similarInOrderStatus.size() - 1);
-//            System.out.println(visitedCnt);
             System.exit(0);
         }
-    }
-
-    private static boolean isAllVisited() { // 모든 노드를 방문했는지 여부 확인
-        for (int i = 0; i <= N; i++) {
-            if (!visited[i]) {
-                return false;
-            }
-        }
-        return true;
     }
 
     private static void inOrder(int cur) { // in-order(중위 순회)
